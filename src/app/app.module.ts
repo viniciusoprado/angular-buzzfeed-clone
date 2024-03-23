@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { QuizzComponent } from './components/quizz/quizz.component';
 import { HomeComponent } from './pages/home/home.component';
 
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,9 +17,11 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
